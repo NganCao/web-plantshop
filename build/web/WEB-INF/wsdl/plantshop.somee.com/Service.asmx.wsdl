@@ -1,0 +1,1365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CountMenu">
+        <s:complexType />
+      </s:element>
+      <s:element name="CountMenuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CountMenuResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListMenu">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetListMenuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListMenuResult" type="tns:ArrayOfMenu" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMenu">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Menu" nillable="true" type="tns:Menu" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Menu">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MaMenu" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TenMenu" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMenu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="maMenu" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMenuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMenuResult" type="tns:Menu" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertMenu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="menu" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertMenuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertMenuResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMenu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="maMenu" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMenuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteMenuResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMenu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="maMenu" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="menu" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMenuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateMenuResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListSanPham">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetListSanPhamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListSanPhamResult" type="tns:ArrayOfSanPham" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSanPham">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SanPham" nillable="true" type="tns:SanPham" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SanPham">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MaSP" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TenSP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HinhAnh" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThongTin" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gia" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaMenu" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Menu" type="tns:Menu" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetListSanPhamTheoMenu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="mamenu" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListSanPhamTheoMenuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListSanPhamTheoMenuResult" type="tns:ArrayOfSanPham" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSanPham">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="maSP" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSanPhamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSanPhamResult" type="tns:SanPham" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get3SPCungLoai">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="n" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="mamenu" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="masp" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get3SPCungLoaiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get3SPCungLoaiResult" type="tns:ArrayOfSanPham" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertSanPham">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="img" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="infor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="price" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertSanPhamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertSanPhamResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSanPham">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="maSP" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSanPhamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteSanPhamResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSanPham">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="maSP" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="img" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="infor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="price" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSanPhamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateSanPhamResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListDDH">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetListDDHResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListDDHResult" type="tns:ArrayOfDonDatHang" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDonDatHang">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DonDatHang" nillable="true" type="tns:DonDatHang" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DonDatHang">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MaDDH" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TrangThai" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DiaChi" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SDT" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NgayDat" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="NgayGiao" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="MoTa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaiKhoan" type="tns:TaiKhoan" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TaiKhoan">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TenKH" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DiaChi" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SDT" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDDH">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="maDDH" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDDHResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDDHResult" type="tns:DonDatHang" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertDDH">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="trangthai" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="diachi" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sdt" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ngaygiao" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="ngaydat" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="mota" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertDDHResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertDDHResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDDH">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="maddh" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDDHResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteDDHResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDDH">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="maddh" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="trangthai" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="diachi" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sdt" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ngaygiao" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="ngaydat" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="mota" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDDHResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateDDHResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListCT_DDH">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetListCT_DDHResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListCT_DDHResult" type="tns:ArrayOfCT_DDH" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCT_DDH">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CT_DDH" nillable="true" type="tns:CT_DDH" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CT_DDH">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MaDDH" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaSP" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SoLuong" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DonGia" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DonDatHang" type="tns:DonDatHang" />
+          <s:element minOccurs="0" maxOccurs="1" name="SanPham" type="tns:SanPham" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCT_DDH">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="maDDH" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="masp" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCT_DDHResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCT_DDHResult" type="tns:CT_DDH" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertCT_DDH">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="maddh" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="masp" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="soluong" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dongia" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertCT_DDHResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertCT_DDHResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCT_DDH">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="maddh" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="masp" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCT_DDHResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteCT_DDHResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCT_DDH">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="maddh" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="masp" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="soluong" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dongia" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCT_DDHResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateCT_DDHResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListTaiKhoan">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetListTaiKhoanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListTaiKhoanResult" type="tns:ArrayOfTaiKhoan" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTaiKhoan">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TaiKhoan" nillable="true" type="tns:TaiKhoan" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTaiKhoan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaiKhoanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTaiKhoanResult" type="tns:TaiKhoan" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertTaiKhoan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tenkh" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="diachi" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sdt" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertTaiKhoanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertTaiKhoanResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTaiKhoan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteTaiKhoanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteTaiKhoanResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTaiKhoan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tenkh" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="diachi" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sdt" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTaiKhoanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateTaiKhoanResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KiemTraDangNhap">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KiemTraDangNhapResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KiemTraDangNhapResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CountMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:CountMenu" />
+  </wsdl:message>
+  <wsdl:message name="CountMenuSoapOut">
+    <wsdl:part name="parameters" element="tns:CountMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListMenu" />
+  </wsdl:message>
+  <wsdl:message name="GetListMenuSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMenu" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertMenu" />
+  </wsdl:message>
+  <wsdl:message name="InsertMenuSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteMenu" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMenuSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMenu" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMenuSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListSanPhamSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListSanPham" />
+  </wsdl:message>
+  <wsdl:message name="GetListSanPhamSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListSanPhamResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListSanPhamTheoMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListSanPhamTheoMenu" />
+  </wsdl:message>
+  <wsdl:message name="GetListSanPhamTheoMenuSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListSanPhamTheoMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSanPhamSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSanPham" />
+  </wsdl:message>
+  <wsdl:message name="GetSanPhamSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSanPhamResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get3SPCungLoaiSoapIn">
+    <wsdl:part name="parameters" element="tns:Get3SPCungLoai" />
+  </wsdl:message>
+  <wsdl:message name="Get3SPCungLoaiSoapOut">
+    <wsdl:part name="parameters" element="tns:Get3SPCungLoaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertSanPhamSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertSanPham" />
+  </wsdl:message>
+  <wsdl:message name="InsertSanPhamSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertSanPhamResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSanPhamSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSanPham" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSanPhamSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteSanPhamResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSanPhamSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSanPham" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSanPhamSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSanPhamResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListDDHSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListDDH" />
+  </wsdl:message>
+  <wsdl:message name="GetListDDHSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListDDHResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDDHSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDDH" />
+  </wsdl:message>
+  <wsdl:message name="GetDDHSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDDHResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertDDHSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertDDH" />
+  </wsdl:message>
+  <wsdl:message name="InsertDDHSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertDDHResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDDHSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteDDH" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDDHSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteDDHResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDDHSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDDH" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDDHSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDDHResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListCT_DDHSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListCT_DDH" />
+  </wsdl:message>
+  <wsdl:message name="GetListCT_DDHSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListCT_DDHResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCT_DDHSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCT_DDH" />
+  </wsdl:message>
+  <wsdl:message name="GetCT_DDHSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCT_DDHResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertCT_DDHSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertCT_DDH" />
+  </wsdl:message>
+  <wsdl:message name="InsertCT_DDHSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertCT_DDHResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCT_DDHSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCT_DDH" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCT_DDHSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCT_DDHResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCT_DDHSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCT_DDH" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCT_DDHSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCT_DDHResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListTaiKhoanSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListTaiKhoan" />
+  </wsdl:message>
+  <wsdl:message name="GetListTaiKhoanSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListTaiKhoanResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTaiKhoanSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTaiKhoan" />
+  </wsdl:message>
+  <wsdl:message name="GetTaiKhoanSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTaiKhoanResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertTaiKhoanSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertTaiKhoan" />
+  </wsdl:message>
+  <wsdl:message name="InsertTaiKhoanSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertTaiKhoanResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTaiKhoanSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteTaiKhoan" />
+  </wsdl:message>
+  <wsdl:message name="DeleteTaiKhoanSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteTaiKhoanResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTaiKhoanSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateTaiKhoan" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTaiKhoanSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateTaiKhoanResponse" />
+  </wsdl:message>
+  <wsdl:message name="KiemTraDangNhapSoapIn">
+    <wsdl:part name="parameters" element="tns:KiemTraDangNhap" />
+  </wsdl:message>
+  <wsdl:message name="KiemTraDangNhapSoapOut">
+    <wsdl:part name="parameters" element="tns:KiemTraDangNhapResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="CountMenu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Đếm số menu</wsdl:documentation>
+      <wsdl:input message="tns:CountMenuSoapIn" />
+      <wsdl:output message="tns:CountMenuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListMenu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Liet ke menu</wsdl:documentation>
+      <wsdl:input message="tns:GetListMenuSoapIn" />
+      <wsdl:output message="tns:GetListMenuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Tim menu theo id</wsdl:documentation>
+      <wsdl:input message="tns:GetMenuSoapIn" />
+      <wsdl:output message="tns:GetMenuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertMenu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Them menu</wsdl:documentation>
+      <wsdl:input message="tns:InsertMenuSoapIn" />
+      <wsdl:output message="tns:InsertMenuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMenu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Xoa menu</wsdl:documentation>
+      <wsdl:input message="tns:DeleteMenuSoapIn" />
+      <wsdl:output message="tns:DeleteMenuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMenu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cap nhat menu</wsdl:documentation>
+      <wsdl:input message="tns:UpdateMenuSoapIn" />
+      <wsdl:output message="tns:UpdateMenuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListSanPham">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Liet ke san pham</wsdl:documentation>
+      <wsdl:input message="tns:GetListSanPhamSoapIn" />
+      <wsdl:output message="tns:GetListSanPhamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListSanPhamTheoMenu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Liet ke san pham theo menu</wsdl:documentation>
+      <wsdl:input message="tns:GetListSanPhamTheoMenuSoapIn" />
+      <wsdl:output message="tns:GetListSanPhamTheoMenuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSanPham">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Tim san pham theo id</wsdl:documentation>
+      <wsdl:input message="tns:GetSanPhamSoapIn" />
+      <wsdl:output message="tns:GetSanPhamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get3SPCungLoai">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">3 san pham cung loai - nhap n (số sp), mamenu, masp</wsdl:documentation>
+      <wsdl:input message="tns:Get3SPCungLoaiSoapIn" />
+      <wsdl:output message="tns:Get3SPCungLoaiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertSanPham">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Them san pham</wsdl:documentation>
+      <wsdl:input message="tns:InsertSanPhamSoapIn" />
+      <wsdl:output message="tns:InsertSanPhamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSanPham">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Xoa san pham</wsdl:documentation>
+      <wsdl:input message="tns:DeleteSanPhamSoapIn" />
+      <wsdl:output message="tns:DeleteSanPhamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSanPham">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cap nhat san pham</wsdl:documentation>
+      <wsdl:input message="tns:UpdateSanPhamSoapIn" />
+      <wsdl:output message="tns:UpdateSanPhamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListDDH">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Liet ke ddh</wsdl:documentation>
+      <wsdl:input message="tns:GetListDDHSoapIn" />
+      <wsdl:output message="tns:GetListDDHSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDDH">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Tim ddh theo id</wsdl:documentation>
+      <wsdl:input message="tns:GetDDHSoapIn" />
+      <wsdl:output message="tns:GetDDHSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertDDH">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Them DDH</wsdl:documentation>
+      <wsdl:input message="tns:InsertDDHSoapIn" />
+      <wsdl:output message="tns:InsertDDHSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDDH">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Xoa ddh</wsdl:documentation>
+      <wsdl:input message="tns:DeleteDDHSoapIn" />
+      <wsdl:output message="tns:DeleteDDHSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDDH">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cap nhat ddh</wsdl:documentation>
+      <wsdl:input message="tns:UpdateDDHSoapIn" />
+      <wsdl:output message="tns:UpdateDDHSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListCT_DDH">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Liet ke ct_ddh</wsdl:documentation>
+      <wsdl:input message="tns:GetListCT_DDHSoapIn" />
+      <wsdl:output message="tns:GetListCT_DDHSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCT_DDH">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Tim ct_ddh theo id</wsdl:documentation>
+      <wsdl:input message="tns:GetCT_DDHSoapIn" />
+      <wsdl:output message="tns:GetCT_DDHSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCT_DDH">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Them ct_ddh</wsdl:documentation>
+      <wsdl:input message="tns:InsertCT_DDHSoapIn" />
+      <wsdl:output message="tns:InsertCT_DDHSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCT_DDH">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Xoa CT_ddh</wsdl:documentation>
+      <wsdl:input message="tns:DeleteCT_DDHSoapIn" />
+      <wsdl:output message="tns:DeleteCT_DDHSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCT_DDH">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cap nhat ct_ddh</wsdl:documentation>
+      <wsdl:input message="tns:UpdateCT_DDHSoapIn" />
+      <wsdl:output message="tns:UpdateCT_DDHSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListTaiKhoan">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Liet ke tai khoan</wsdl:documentation>
+      <wsdl:input message="tns:GetListTaiKhoanSoapIn" />
+      <wsdl:output message="tns:GetListTaiKhoanSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaiKhoan">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Tim tai khoan theo username</wsdl:documentation>
+      <wsdl:input message="tns:GetTaiKhoanSoapIn" />
+      <wsdl:output message="tns:GetTaiKhoanSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertTaiKhoan">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Them tai khoan</wsdl:documentation>
+      <wsdl:input message="tns:InsertTaiKhoanSoapIn" />
+      <wsdl:output message="tns:InsertTaiKhoanSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaiKhoan">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Xoa tai khoan</wsdl:documentation>
+      <wsdl:input message="tns:DeleteTaiKhoanSoapIn" />
+      <wsdl:output message="tns:DeleteTaiKhoanSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaiKhoan">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cap nhat tai khoan</wsdl:documentation>
+      <wsdl:input message="tns:UpdateTaiKhoanSoapIn" />
+      <wsdl:output message="tns:UpdateTaiKhoanSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KiemTraDangNhap">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Kiem tra dang nhap: (-1: không có username, 0: không đúng pass, 1: đúng)</wsdl:documentation>
+      <wsdl:input message="tns:KiemTraDangNhapSoapIn" />
+      <wsdl:output message="tns:KiemTraDangNhapSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CountMenu">
+      <soap:operation soapAction="http://tempuri.org/CountMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListMenu">
+      <soap:operation soapAction="http://tempuri.org/GetListMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenu">
+      <soap:operation soapAction="http://tempuri.org/GetMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertMenu">
+      <soap:operation soapAction="http://tempuri.org/InsertMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMenu">
+      <soap:operation soapAction="http://tempuri.org/DeleteMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMenu">
+      <soap:operation soapAction="http://tempuri.org/UpdateMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListSanPham">
+      <soap:operation soapAction="http://tempuri.org/GetListSanPham" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListSanPhamTheoMenu">
+      <soap:operation soapAction="http://tempuri.org/GetListSanPhamTheoMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSanPham">
+      <soap:operation soapAction="http://tempuri.org/GetSanPham" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get3SPCungLoai">
+      <soap:operation soapAction="http://tempuri.org/Get3SPCungLoai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSanPham">
+      <soap:operation soapAction="http://tempuri.org/InsertSanPham" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSanPham">
+      <soap:operation soapAction="http://tempuri.org/DeleteSanPham" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSanPham">
+      <soap:operation soapAction="http://tempuri.org/UpdateSanPham" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListDDH">
+      <soap:operation soapAction="http://tempuri.org/GetListDDH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDDH">
+      <soap:operation soapAction="http://tempuri.org/GetDDH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertDDH">
+      <soap:operation soapAction="http://tempuri.org/InsertDDH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDDH">
+      <soap:operation soapAction="http://tempuri.org/DeleteDDH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDDH">
+      <soap:operation soapAction="http://tempuri.org/UpdateDDH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListCT_DDH">
+      <soap:operation soapAction="http://tempuri.org/GetListCT_DDH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCT_DDH">
+      <soap:operation soapAction="http://tempuri.org/GetCT_DDH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCT_DDH">
+      <soap:operation soapAction="http://tempuri.org/InsertCT_DDH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCT_DDH">
+      <soap:operation soapAction="http://tempuri.org/DeleteCT_DDH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCT_DDH">
+      <soap:operation soapAction="http://tempuri.org/UpdateCT_DDH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListTaiKhoan">
+      <soap:operation soapAction="http://tempuri.org/GetListTaiKhoan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaiKhoan">
+      <soap:operation soapAction="http://tempuri.org/GetTaiKhoan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertTaiKhoan">
+      <soap:operation soapAction="http://tempuri.org/InsertTaiKhoan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaiKhoan">
+      <soap:operation soapAction="http://tempuri.org/DeleteTaiKhoan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaiKhoan">
+      <soap:operation soapAction="http://tempuri.org/UpdateTaiKhoan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KiemTraDangNhap">
+      <soap:operation soapAction="http://tempuri.org/KiemTraDangNhap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CountMenu">
+      <soap12:operation soapAction="http://tempuri.org/CountMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListMenu">
+      <soap12:operation soapAction="http://tempuri.org/GetListMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenu">
+      <soap12:operation soapAction="http://tempuri.org/GetMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertMenu">
+      <soap12:operation soapAction="http://tempuri.org/InsertMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMenu">
+      <soap12:operation soapAction="http://tempuri.org/DeleteMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMenu">
+      <soap12:operation soapAction="http://tempuri.org/UpdateMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListSanPham">
+      <soap12:operation soapAction="http://tempuri.org/GetListSanPham" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListSanPhamTheoMenu">
+      <soap12:operation soapAction="http://tempuri.org/GetListSanPhamTheoMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSanPham">
+      <soap12:operation soapAction="http://tempuri.org/GetSanPham" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get3SPCungLoai">
+      <soap12:operation soapAction="http://tempuri.org/Get3SPCungLoai" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSanPham">
+      <soap12:operation soapAction="http://tempuri.org/InsertSanPham" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSanPham">
+      <soap12:operation soapAction="http://tempuri.org/DeleteSanPham" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSanPham">
+      <soap12:operation soapAction="http://tempuri.org/UpdateSanPham" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListDDH">
+      <soap12:operation soapAction="http://tempuri.org/GetListDDH" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDDH">
+      <soap12:operation soapAction="http://tempuri.org/GetDDH" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertDDH">
+      <soap12:operation soapAction="http://tempuri.org/InsertDDH" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDDH">
+      <soap12:operation soapAction="http://tempuri.org/DeleteDDH" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDDH">
+      <soap12:operation soapAction="http://tempuri.org/UpdateDDH" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListCT_DDH">
+      <soap12:operation soapAction="http://tempuri.org/GetListCT_DDH" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCT_DDH">
+      <soap12:operation soapAction="http://tempuri.org/GetCT_DDH" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCT_DDH">
+      <soap12:operation soapAction="http://tempuri.org/InsertCT_DDH" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCT_DDH">
+      <soap12:operation soapAction="http://tempuri.org/DeleteCT_DDH" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCT_DDH">
+      <soap12:operation soapAction="http://tempuri.org/UpdateCT_DDH" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListTaiKhoan">
+      <soap12:operation soapAction="http://tempuri.org/GetListTaiKhoan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaiKhoan">
+      <soap12:operation soapAction="http://tempuri.org/GetTaiKhoan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertTaiKhoan">
+      <soap12:operation soapAction="http://tempuri.org/InsertTaiKhoan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaiKhoan">
+      <soap12:operation soapAction="http://tempuri.org/DeleteTaiKhoan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaiKhoan">
+      <soap12:operation soapAction="http://tempuri.org/UpdateTaiKhoan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KiemTraDangNhap">
+      <soap12:operation soapAction="http://tempuri.org/KiemTraDangNhap" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://plantshop.somee.com/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://plantshop.somee.com/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

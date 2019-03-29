@@ -1,0 +1,14 @@
+SMAP
+shop_002dproductdetails_jsp.java
+JSP
+*S JSP
+*F
++ 0 shop-productdetails.jsp
+shop-productdetails.jsp
+*L
+1,30:44
+31:74,2
+32,308:76
+340:384,3
+341,46:387
+*E
